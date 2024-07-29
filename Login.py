@@ -63,6 +63,7 @@ def get_admin_dict():
 
     return admin_dict
 
+
 def initial_login():
     print("Welcome to The Wild Bear, a workout clothing line \n")
     print("To begin please [L]ogin or [C]reate Account:")
@@ -83,7 +84,6 @@ def initial_login():
                     break
                 elif l_login == 'u' or l_login == 'U':
                     user_login()
-                    print("user works")
                     break
                 else:
                     print("Please enter A for Admin or U for user.")
@@ -118,13 +118,13 @@ def register():
             break
         else:
             print("Please enter a password with more 5 than characters")
-            #continue
     
     db.accounts.insert_one({"username": username, "password": password})
     user_login()
 
 def user_login():
     current_user = CurrentUser()
+
     user_dict = get_user_dict()
 
     while True:
@@ -133,11 +133,11 @@ def user_login():
 
         if username in user_dict.keys() and user_dict[username] == password:
             current_user.store_user(username)
-            print(f'Welcome {username}')
+            print(f'\nWelcome {username}')
             break
         else:
             print("Username or password is incorrect")
-
+        
 def admin_login():
     current_user = CurrentUser()
     admin_dict = get_admin_dict()
