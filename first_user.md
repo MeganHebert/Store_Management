@@ -109,8 +109,10 @@ def home_page():
     if home_action in ["B", "b"]:
         print("dads exa,")
 
+# assign path module to __file__ (parameter) .parent -> wherever this executes, find what to look for in the parent of what were executing 
+PATH = Path(__file__).parent / "newdata" to get subdirectory
 
 
 
 
-    "{"acs_id": 1, "acs_desc": "Black Cooling Towel", "acs_price": 15, "acs_qt": 100, "acs_id": 2, "acs_desc": "Blue Cooling Towel", "acs_price": 15, "acs_qt": 100}"
+ db.valid_users.find()
