@@ -2,6 +2,24 @@ from pymongo import MongoClient
 from models import User
 from models import UserList
 from models import CurrentUser
+import logging
+import mysql.connector
+import mysql_config as c
+
+def init_login():
+    try:
+        cnx = mysql.connector.connect(user=c.user, password=c.password, host=c.host, database="wildbeardb")
+        cursor = cnx.cursor()
+    except mysql.connector.Error as mce:
+        print(mce.msg)
+        return
+    except Exception as e:
+        print("ERROR: Exiting program")
+        return
+    logging.basicConfig(filename="Wild_Bear.log", level=logging.DEBUG, format='%(asctime)s :: %(message)s')
+    return cnx,cursor
+
+
 
 client = MongoClient()
 db = client.get_database("wildbeardb")
@@ -87,13 +105,15 @@ def initial_login():
                 else:
                     print("Please enter A for Admin or U for user.")
         elif init_login == 'c' or init_login == "C":
-            register()
-            break
+            current_user: CurrentUser = create_user()
+            current_user: CurrentUser = user_login()
+            return current_user
         else: 
             print("Please enter L for Login or C to Create Account.")
 
 
-def register():
+def create_user():
+    cnx, cursor = init_login()
     user_dict = get_user_dict()
 
     while True: 
@@ -115,8 +135,14 @@ def register():
             break
         else:
             print("Please enter a password with more 5 than characters")
-    
+    current_user = CurrentUser()
+    current_user.store_user(username)
     db.accounts.insert_one({"username": username, "password": password})
+    logging.info("Created new username and password")
+
+    cursor.close()
+    cnx.close()
+    return current_user
 
 def user_login():
     current_user = CurrentUser()

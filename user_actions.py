@@ -202,8 +202,6 @@ def home_page(current_user: CurrentUser):
             break
         elif home_action.upper() == "P":
             get_past_orders(current_user)
-
-            print("past works")
             break
         else:
             print("Please enter a b to browse products, c to create an order, or p to view your past orders")
