@@ -116,3 +116,40 @@ PATH = Path(__file__).parent / "newdata" to get subdirectory
 
 
  db.valid_users.find()
+
+
+megan = user_actions.get_order_number()
+
+                    if int(co_input) in range(0,count_top):
+                        insert_lst = [{"orderID" : orderid, **top_details[int(co_input)-1]}]
+                        db.orders.insert_many(insert_lst)
+                        break
+                    else:
+                            print(f"Please input a valid product number within range: range{(1,count_top)}")
+    #print(orders["Username"])
+
+    #for item in orders:
+        #print(item)
+    orders_dict = {}
+    while True:
+        for item in orders:
+            orders_dict.update(item)
+            return orders_dict
+    
+print(orders_dict)
+
+def admin_login(current_user: CurrentUser):
+    current_user = CurrentUser()
+    admin_dict = get_admin_dict()
+
+    while True:
+        username = input("Username: ")
+        password = input("Password: ")
+
+        if username in admin_dict.keys() and admin_dict[username] == password:
+            #current_user.store_user(username)
+            print(f"Welcome Admin: {username}")
+            #return current_user
+            admin_actions.admin_home_page()
+        else:
+            print("Username or password is incorrect")

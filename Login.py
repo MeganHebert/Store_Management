@@ -3,7 +3,6 @@ from models import User
 from models import UserList
 from models import CurrentUser
 
-
 client = MongoClient()
 db = client.get_database("wildbeardb")
 
@@ -80,15 +79,13 @@ def initial_login():
                 l_login = l_login.strip()
 
                 if l_login == 'a' or l_login =="A":
-                    admin_login()
-                    break
+                    current_user: CurrentUser = admin_login()
+                    return current_user
                 elif l_login == 'u' or l_login == 'U':
-                    user_login()
-                    break
+                    current_user: CurrentUser = user_login()
+                    return current_user
                 else:
                     print("Please enter A for Admin or U for user.")
-
-            break
         elif init_login == 'c' or init_login == "C":
             register()
             break
@@ -120,7 +117,6 @@ def register():
             print("Please enter a password with more 5 than characters")
     
     db.accounts.insert_one({"username": username, "password": password})
-    user_login()
 
 def user_login():
     current_user = CurrentUser()
@@ -134,12 +130,11 @@ def user_login():
         if username in user_dict.keys() and user_dict[username] == password:
             current_user.store_user(username)
             print(f'\nWelcome {username}')
-            break
+            return current_user
         else:
             print("Username or password is incorrect")
         
 def admin_login():
-    current_user = CurrentUser()
     admin_dict = get_admin_dict()
 
     while True:
@@ -147,9 +142,10 @@ def admin_login():
         password = input("Password: ")
 
         if username in admin_dict.keys() and admin_dict[username] == password:
+            current_user = CurrentUser(is_admin=True)
             current_user.store_user(username)
             print(f"Welcome Admin: {username}")
-            break
+            return current_user
         else:
             print("Username or password is incorrect")
 

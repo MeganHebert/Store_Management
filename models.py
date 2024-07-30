@@ -15,11 +15,13 @@ class UserList:
 
 
 class CurrentUser:
-    def __init__(self):
+    def __init__(self, is_admin: bool = False):
         self.stored_user = None
+        self.is_admin = is_admin
 
     def store_user(self, string):
         self.stored_user = string
+       
 
     def get_current_user(self):
         return self.stored_user

@@ -1,29 +1,191 @@
 [
-{"bottom_id": 1, "bottom_desc": "Black Short", "bottom_size": "small", "bottom_price": 30.00, "bottom_qt": 250},
-{"bottom_id": 2, "bottom_desc": "Black Short", "bottom_size": "medium", "bottom_price": 30.00, "bottom_qt": 250},
-{"bottom_id": 3, "bottom_desc": "Black Short", "bottom_size": "large", "bottom_price": 30.00, "bottom_qt": 100},
-{"bottom_id": 4, "bottom_desc": "Blue Short", "bottom_size": "small", "bottom_price": 30.00, "bottom_qt": 250},
-{"bottom_id": 5, "bottom_desc": "Blue Short", "bottom_size": "medium", "bottom_price": 30.00, "bottom_qt": 250},
-{"bottom_id": 6, "bottom_desc": "Blue Short", "bottom_size": "large", "bottom_price": 30.00, "bottom_qt": 100},
-{"bottom_id": 7, "bottom_desc": "Grey Short", "bottom_size": "small", "bottom_price": 30.00, "bottom_qt": 250},
-{"bottom_id": 8, "bottom_desc": "Grey Short", "bottom_size": "medium", "bottom_price": 30.00, "bottom_qt": 250},
-{"bottom_id": 9, "bottom_desc": "Grey Short", "bottom_size": "large", "bottom_price": 30.00, "bottom_qt": 100},
-{"bottom_id": 10, "bottom_desc": "Black Legging", "bottom_size": "small", "bottom_price": 60.00, "bottom_qt": 250},
-{"bottom_id": 11, "bottom_desc": "Black Legging", "bottom_size": "medium", "bottom_price": 60.00, "bottom_qt": 250},
-{"bottom_id": 12, "bottom_desc": "Black Legging", "bottom_size": "large", "bottom_price": 60.00, "bottom_qt": 100},
-{"bottom_id": 13, "bottom_desc": "Blue Legging", "bottom_size": "small", "bottom_price": 60.00, "bottom_qt": 200},
-{"bottom_id": 14, "bottom_desc": "Blue Legging", "bottom_size": "medium", "bottom_price": 60.00, "bottom_qt": 200},
-{"bottom_id": 15, "bottom_desc": "Blue Legging", "bottom_size": "large", "bottom_price": 60.00, "bottom_qt": 100},
-{"bottom_id": 16, "bottom_desc": "Grey Legging", "bottom_size": "small", "bottom_price": 60.00, "bottom_qt": 200},
-{"bottom_id": 17, "bottom_desc": "Grey Legging", "bottom_size": "medium", "bottom_price": 60.00, "bottom_qt": 200},
-{"bottom_id": 18, "bottom_desc": "Grey Legging", "bottom_size": "large", "bottom_price": 60.00, "bottom_qt": 100},
-{"bottom_id": 19, "bottom_desc": "Black Sweatpant", "bottom_size": "small", "bottom_price": 80.00, "bottom_qt": 150},
-{"bottom_id": 20, "bottom_desc": "Black Sweatpant", "bottom_size": "medium", "bottom_price": 80.00, "bottom_qt": 150},
-{"bottom_id": 21, "bottom_desc": "Black Sweatpant", "bottom_size": "large", "bottom_price": 80.00, "bottom_qt": 150},
-{"bottom_id": 22, "bottom_desc": "Blue Sweatpant", "bottom_size": "small", "bottom_price": 80.00, "bottom_qt": 100},
-{"bottom_id": 23, "bottom_desc": "Blue Sweatpant", "bottom_size": "medium", "bottom_price": 80.00, "bottom_qt": 100},
-{"bottom_id": 24, "bottom_desc": "Blue Sweatpant", "bottom_size": "large", "bottom_price": 80.00, "bottom_qt": 50},
-{"bottom_id": 25, "bottom_desc": "Grey Sweatpant", "bottom_size": "small", "bottom_price": 80.00, "bottom_qt": 200},
-{"bottom_id": 26, "bottom_desc": "Grey Sweatpant", "bottom_size": "medium", "bottom_price": 80.00, "bottom_qt": 200},
-{"bottom_id": 27, "bottom_desc": "Grey Sweatpant", "bottom_size": "large", "bottom_price": 80.00, "bottom_qt": 200}
+    {
+        "bottom_id": 1,
+        "bottom_desc": "Black Short",
+        "bottom_size": "small",
+        "bottom_price": 30.0,
+        "bottom_qt": 252
+    },
+    {
+        "bottom_id": 2,
+        "bottom_desc": "Black Short",
+        "bottom_size": "medium",
+        "bottom_price": 30.0,
+        "bottom_qt": 251
+    },
+    {
+        "bottom_id": 3,
+        "bottom_desc": "Black Short",
+        "bottom_size": "large",
+        "bottom_price": 30.0,
+        "bottom_qt": 100
+    },
+    {
+        "bottom_id": 4,
+        "bottom_desc": "Blue Short",
+        "bottom_size": "small",
+        "bottom_price": 30.0,
+        "bottom_qt": 250
+    },
+    {
+        "bottom_id": 5,
+        "bottom_desc": "Blue Short",
+        "bottom_size": "medium",
+        "bottom_price": 30.0,
+        "bottom_qt": 250
+    },
+    {
+        "bottom_id": 6,
+        "bottom_desc": "Blue Short",
+        "bottom_size": "large",
+        "bottom_price": 30.0,
+        "bottom_qt": 100
+    },
+    {
+        "bottom_id": 7,
+        "bottom_desc": "Grey Short",
+        "bottom_size": "small",
+        "bottom_price": 30.0,
+        "bottom_qt": 250
+    },
+    {
+        "bottom_id": 8,
+        "bottom_desc": "Grey Short",
+        "bottom_size": "medium",
+        "bottom_price": 30.0,
+        "bottom_qt": 250
+    },
+    {
+        "bottom_id": 9,
+        "bottom_desc": "Grey Short",
+        "bottom_size": "large",
+        "bottom_price": 30.0,
+        "bottom_qt": 100
+    },
+    {
+        "bottom_id": 10,
+        "bottom_desc": "Black Legging",
+        "bottom_size": "small",
+        "bottom_price": 60.0,
+        "bottom_qt": 250
+    },
+    {
+        "bottom_id": 11,
+        "bottom_desc": "Black Legging",
+        "bottom_size": "medium",
+        "bottom_price": 60.0,
+        "bottom_qt": 250
+    },
+    {
+        "bottom_id": 12,
+        "bottom_desc": "Black Legging",
+        "bottom_size": "large",
+        "bottom_price": 65,
+        "bottom_qt": 120
+    },
+    {
+        "bottom_id": 13,
+        "bottom_desc": "Blue Legging",
+        "bottom_size": "small",
+        "bottom_price": 60.0,
+        "bottom_qt": 200
+    },
+    {
+        "bottom_id": 14,
+        "bottom_desc": "Blue Legging",
+        "bottom_size": "medium",
+        "bottom_price": 60.0,
+        "bottom_qt": 200
+    },
+    {
+        "bottom_id": 15,
+        "bottom_desc": "Blue Legging",
+        "bottom_size": "large",
+        "bottom_price": 60.0,
+        "bottom_qt": 100
+    },
+    {
+        "bottom_id": 16,
+        "bottom_desc": "Grey Legging",
+        "bottom_size": "small",
+        "bottom_price": 60.0,
+        "bottom_qt": 400
+    },
+    {
+        "bottom_id": 17,
+        "bottom_desc": "Grey Legging",
+        "bottom_size": "medium",
+        "bottom_price": 60.0,
+        "bottom_qt": 200
+    },
+    {
+        "bottom_id": 18,
+        "bottom_desc": "Grey Legging",
+        "bottom_size": "large",
+        "bottom_price": 60.0,
+        "bottom_qt": 100
+    },
+    {
+        "bottom_id": 19,
+        "bottom_desc": "Black Sweatpant",
+        "bottom_size": "small",
+        "bottom_price": 80.0,
+        "bottom_qt": 149
+    },
+    {
+        "bottom_id": 20,
+        "bottom_desc": "Black Sweatpant",
+        "bottom_size": "medium",
+        "bottom_price": 80.0,
+        "bottom_qt": 150
+    },
+    {
+        "bottom_id": 21,
+        "bottom_desc": "Black Sweatpant",
+        "bottom_size": "large",
+        "bottom_price": 80.0,
+        "bottom_qt": 150
+    },
+    {
+        "bottom_id": 22,
+        "bottom_desc": "Blue Sweatpant",
+        "bottom_size": "small",
+        "bottom_price": 80.0,
+        "bottom_qt": 100
+    },
+    {
+        "bottom_id": 23,
+        "bottom_desc": "Blue Sweatpant",
+        "bottom_size": "medium",
+        "bottom_price": 75,
+        "bottom_qt": 100
+    },
+    {
+        "bottom_id": 24,
+        "bottom_desc": "Blue Sweatpant",
+        "bottom_size": "large",
+        "bottom_price": 80.0,
+        "bottom_qt": 50
+    },
+    {
+        "bottom_id": 25,
+        "bottom_desc": "Grey Sweatpant",
+        "bottom_size": "small",
+        "bottom_price": 80.0,
+        "bottom_qt": 200
+    },
+    {
+        "bottom_id": 26,
+        "bottom_desc": "Grey Sweatpant",
+        "bottom_size": "medium",
+        "bottom_price": 80.0,
+        "bottom_qt": 200
+    },
+    {
+        "bottom_id": 27,
+        "bottom_desc": "Grey Sweatpant",
+        "bottom_size": "large",
+        "bottom_price": 80.0,
+        "bottom_qt": 200
+    }
 ]
