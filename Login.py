@@ -6,23 +6,21 @@ import logging
 import mysql.connector
 import mysql_config as c
 
+client = MongoClient()
+db = client.get_database("wildbeardb")
+
 def init_login():
     try:
         cnx = mysql.connector.connect(user=c.user, password=c.password, host=c.host, database="wildbeardb")
         cursor = cnx.cursor()
+        logging.info("DB connection established")
     except mysql.connector.Error as mce:
         print(mce.msg)
         return
     except Exception as e:
         print("ERROR: Exiting program")
         return
-    logging.basicConfig(filename="Wild_Bear.log", level=logging.DEBUG, format='%(asctime)s :: %(message)s')
-    return cnx,cursor
-
-
-
-client = MongoClient()
-db = client.get_database("wildbeardb")
+    return cnx, cursor
 
 # gets user accounta data from db
 def get_db_accounts():
@@ -37,10 +35,9 @@ def get_user_list():
     for acc in accounts:
         user = User(
             username=acc["username"],
-            password=acc.get("password"),              #.get will allow for no key value: password
+            password=acc.get("password"),    
         )
-        ul.user_list.append(user)
-    
+        ul.user_list.append(user)   
     return ul
 
 # converts userList object into dictionary
@@ -50,7 +47,6 @@ def get_user_dict():
     
     for user in ul.user_list:
         user_dict.update(user.user_dict())
-    
     return user_dict
 
 # load admin from json -> put in db
@@ -65,7 +61,7 @@ def get_admin_list():
     for acc in accounts:
         admin_user = User(
             username=acc["username"],
-            password=acc.get("password"),              #.get will allow for no key value: password
+            password=acc.get("password"), 
         )
         admin_ul.user_list.append(admin_user)
     
@@ -82,18 +78,19 @@ def get_admin_dict():
 
 
 def initial_login():
+    logging.basicConfig(filename="Wild_Bear.log", level=logging.DEBUG, format='%(asctime)s :: %(message)s')
     print("Welcome to The Wild Bear, a workout clothing line \n")
     print("To begin please [L]ogin or [C]reate Account:")
 
     while True: 
-        init_login = input()                # L or C
+        init_login = input()
         init_login = init_login.strip()
 
         if init_login == 'l' or init_login == 'L':
             print("Thank you for returning to The Wild Bear! \nPlease specify whether you're and [A]dmin or regular [U]ser:")
 
             while True: 
-                l_login = input()               # A or U
+                l_login = input()
                 l_login = l_login.strip()
 
                 if l_login == 'a' or l_login =="A":
@@ -111,9 +108,7 @@ def initial_login():
         else: 
             print("Please enter L for Login or C to Create Account.")
 
-
 def create_user():
-    cnx, cursor = init_login()
     user_dict = get_user_dict()
 
     while True: 
@@ -138,10 +133,7 @@ def create_user():
     current_user = CurrentUser()
     current_user.store_user(username)
     db.accounts.insert_one({"username": username, "password": password})
-    logging.info("Created new username and password")
-
-    cursor.close()
-    cnx.close()
+    logging.info("Create new username and password")
     return current_user
 
 def user_login():

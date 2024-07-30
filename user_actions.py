@@ -1,6 +1,7 @@
 import json
 import random
 import datetime
+import logging
 from Login import CurrentUser 
 from pathlib import Path
 from pymongo import MongoClient
@@ -12,13 +13,13 @@ PATH = Path(__file__).parent
 
 def get_db_orders():
     cust_orders = db.orders.find()
+    logging.info("Open orders db")
     return cust_orders
 
 def get_order_number():
     num_users = range(1,50000)
     order_id = random.sample(num_users,1)[0]
     return order_id
-
 
 def browse_all_products():
     with open(PATH / "athletic_tops.json","r") as tops:
@@ -52,7 +53,6 @@ def create_order_menu(current_user: CurrentUser):
     elif user_input.upper() == "Q":
         print("Thank you for visiting The Wild Bear")
         quit()
-
 
 def create_order(current_user: CurrentUser):
     time_stamp = datetime.datetime.now()
@@ -91,6 +91,8 @@ def create_order(current_user: CurrentUser):
                     insert_lst = [{"orderID" : orderid, "Username": username, **top_details[int(co_input)-1], "Date": time_stamp}]
                     db.orders.insert_many(insert_lst)
                     db.orders.update_many({}, {'$unset' : {"top_qt": ""}}) 
+                    logging.info("Top order created")
+
                     create_order_menu(current_user)
                     break
                 else:
@@ -120,6 +122,7 @@ def create_order(current_user: CurrentUser):
                     insert_lst = [{"orderID" : orderid, "Username": username, **bottom_details[int(co_input)-1], "Date": time_stamp}]
                     db.orders.insert_many(insert_lst)
                     db.orders.update_many({}, {'$unset' : {"bottom_qt": ""}}) 
+                    logging.info("Bottom order created")
                     create_order_menu(current_user)
                     break
                 else:
@@ -150,6 +153,7 @@ def create_order(current_user: CurrentUser):
                     insert_lst = [{"orderID" : orderid, "Username": username, **accessory_details[int(co_input)-1], "Date": time_stamp}]
                     db.orders.insert_many(insert_lst)
                     db.orders.update_many({}, {'$unset' : {"acs_qt": ""}}) 
+                    logging.info("Accessory order created")
                     create_order_menu(current_user)
                     break
                 else:
@@ -165,8 +169,6 @@ def get_past_orders(current_user: CurrentUser):
 
     for row in orders:
         print(row)
- 
-
 
 def home_page(current_user: CurrentUser):
     print("Please choose from the following menu options:")
@@ -189,7 +191,7 @@ def home_page(current_user: CurrentUser):
                     create_order(current_user)
                     break
                 elif user_input.upper() == "G":
-                    home_page()
+                    home_page(current_user)
                     break
                 elif user_input.upper() == "Q":
                     print("Thank you for visiting The Wild Bear!")
@@ -199,9 +201,7 @@ def home_page(current_user: CurrentUser):
             break
         elif home_action.upper() == "C":
             create_order(current_user)
-            break
         elif home_action.upper() == "P":
             get_past_orders(current_user)
-            break
         else:
             print("Please enter a b to browse products, c to create an order, or p to view your past orders")

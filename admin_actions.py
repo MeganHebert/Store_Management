@@ -1,4 +1,5 @@
 import json 
+import logging
 from pathlib import Path
 from models import CurrentUser
 
@@ -27,7 +28,6 @@ def admin_home_page(admin_user: CurrentUser):
                 for tops in top_details:
                     print([tops["top_id"]],tops["top_desc"], tops["top_size"], "${}".format(tops["top_price"], tops["top_qt"]))
                     count_top = tops["top_id"]
-                print(f"{admin_user.get_current_user()} have successfully edited the quanity")
 
                 while True:
                     co_input = int(input("Enter the productID to modify: ").strip())
@@ -35,7 +35,8 @@ def admin_home_page(admin_user: CurrentUser):
                     if selected_top:
                         new_quantity = int(input(f"Current quantity of {selected_top['top_desc']}, {selected_top['top_size']} is {selected_top['top_qt']}. Enter new quantity: ").strip())
                         selected_top['top_qt'] = new_quantity
-
+                        logging.info(f'{admin_user.get_current_user()} has edited the quantity')
+                        
                         with open(PATH / "athletic_tops.json", "w") as tops_file:
                             json.dump(top_details, tops_file, indent=4)
 
@@ -69,7 +70,7 @@ def admin_home_page(admin_user: CurrentUser):
                     if selected_bottom:
                         new_quantity = int(input(f"Current quantity of {selected_bottom["bottom_desc"]},{selected_bottom["bottom_size"]} is {selected_bottom['bottom_qt']}. Enter new quantity for {selected_bottom["bottom_desc"]} : ").strip())
                         selected_bottom['bottom_qt'] = new_quantity
-
+                        logging.info(f'{admin_user.get_current_user()} has edited the quantity')
                         with open(PATH / "athletic_bottoms.json", "w") as bottoms_file:
                             json.dump(bottom_details, bottoms_file, indent=4)
 
@@ -102,7 +103,7 @@ def admin_home_page(admin_user: CurrentUser):
                     if selected_acs:
                         new_quantity = int(input(f"Current quantity of {selected_acs["acs_desc"]} is {selected_acs['acs_qt']}. Enter new quantity for {selected_acs["acs_desc"]} : ").strip())
                         selected_acs['acs_qt'] = new_quantity
-
+                        logging.info(f'{admin_user.get_current_user()} has edited the quantity')
                         with open(PATH / "athletic_acs.json", "w") as acs_file:
                             json.dump(accessory_details, acs_file, indent=4)
 
@@ -145,7 +146,7 @@ def admin_home_page(admin_user: CurrentUser):
                         if selected_top:
                             new_price = int(input(f"Current price of {selected_top['top_desc']}, {selected_top['top_size']} is ${selected_top['top_price']}. Enter new price: ").strip())
                             selected_top['top_price'] = new_price
-
+                            logging.info(f'{admin_user.get_current_user()} has edited the price')
                             with open(PATH / "athletic_tops.json", "w") as tops_file:
                                 json.dump(top_details, tops_file, indent=4)
 
@@ -180,7 +181,7 @@ def admin_home_page(admin_user: CurrentUser):
                         if selected_bottom:
                             new_price = int(input(f"Current price of {selected_bottom['bottom_desc']}, {selected_bottom['bottom_size']} is ${selected_bottom['bottom_price']}. Enter new price: ").strip())
                             selected_bottom['bottom_price'] = new_price
-
+                            logging.info(f'{admin_user.get_current_user()} has edited the price')
                             with open(PATH / "athletic_bottoms.json", "w") as bottoms_file:
                                 json.dump(bottom_details, bottoms_file, indent=4)
 
@@ -212,7 +213,7 @@ def admin_home_page(admin_user: CurrentUser):
                     if selected_acs:
                         new_quantity = int(input(f"Current price of {selected_acs["acs_desc"]} is ${selected_acs['acs_price']}. Enter new price for {selected_acs["acs_desc"]} : ").strip())
                         selected_acs['acs_qt'] = new_quantity
-
+                        logging.info(f'{admin_user.get_current_user()} has edited the price')
                         with open(PATH / "athletic_acs.json", "w") as acs_file:
                             json.dump(accessory_details, acs_file, indent=4)
 

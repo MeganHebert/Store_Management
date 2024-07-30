@@ -46,7 +46,7 @@
         "bottom_desc": "Grey Short",
         "bottom_size": "small",
         "bottom_price": 30.0,
-        "bottom_qt": 250
+        "bottom_qt": 249
     },
     {
         "bottom_id": 8,
@@ -157,7 +157,7 @@
         "bottom_id": 23,
         "bottom_desc": "Blue Sweatpant",
         "bottom_size": "medium",
-        "bottom_price": 75,
+        "bottom_price": 80,
         "bottom_qt": 100
     },
     {
