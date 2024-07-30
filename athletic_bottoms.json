@@ -4,7 +4,7 @@
         "bottom_desc": "Black Short",
         "bottom_size": "small",
         "bottom_price": 30.0,
-        "bottom_qt": 252
+        "bottom_qt": 251
     },
     {
         "bottom_id": 2,
@@ -74,7 +74,7 @@
         "bottom_desc": "Black Legging",
         "bottom_size": "medium",
         "bottom_price": 60.0,
-        "bottom_qt": 250
+        "bottom_qt": 249
     },
     {
         "bottom_id": 12,
@@ -179,7 +179,7 @@
         "bottom_desc": "Grey Sweatpant",
         "bottom_size": "medium",
         "bottom_price": 80.0,
-        "bottom_qt": 200
+        "bottom_qt": 199
     },
     {
         "bottom_id": 27,

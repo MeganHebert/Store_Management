@@ -5,6 +5,7 @@ import logging
 from Login import CurrentUser 
 from pathlib import Path
 from pymongo import MongoClient
+from bson.json_util import dumps
 
 client = MongoClient()
 db = client.get_database("wildbeardb")
@@ -44,20 +45,27 @@ def browse_all_products():
 
 def create_order_menu(current_user: CurrentUser):
     print("Would you like to:")
+    print("[H]ome Menu")
     print("[C]ontinue shopping")
     print("[Q]uit")
-    user_input = input()
 
-    if user_input.upper() == "C":
-        create_order(current_user)
-    elif user_input.upper() == "Q":
-        print("Thank you for visiting The Wild Bear")
-        quit()
+    while True:
+        user_input = input()
+        if user_input.upper() == "H":
+            home_page(current_user)
+        elif user_input.upper() == "C":
+            create_order(current_user)
+        elif user_input.upper() == "Q":
+            print("Thank you for visiting The Wild Bear")
+            quit()
+        else: 
+            print("Please enter h for home menu, c to continue shopping, or q to quit")
+
+orderid = get_order_number()
 
 def create_order(current_user: CurrentUser):
     time_stamp = datetime.datetime.now()
     get_db_orders()
-    orderid = get_order_number()
     print("Would you like to look at:")
     print("[T]ops")
     print("[B]ottoms")
@@ -165,11 +173,22 @@ def create_order(current_user: CurrentUser):
 def get_past_orders(current_user: CurrentUser):
     past_orders = db.orders
     search_key = current_user.get_current_user()
-    orders = past_orders.find({"Username": search_key})
+    #orders = past_orders.find({"Username": search_key})
+    cursor = past_orders.find({})
 
-    for row in orders:
-        print(row)
+    with open('past_orders.json', 'w') as file:
+        json.dump(json.loads(dumps(cursor)),file)
 
+    with open('past_orders.json', 'r') as past_order:
+        all_past_orders = json.load(past_order)
+
+    for order in all_past_orders:
+        if order['Username'] == search_key:
+            order.pop('_id')
+            print(order)
+        else:
+            pass
+    
     home_page(current_user)
 
 def home_page(current_user: CurrentUser):
@@ -177,6 +196,7 @@ def home_page(current_user: CurrentUser):
     print("[B]rowse Products")
     print("[C]reate Order")
     print("[P]ast Orders")
+    print("[Q]uit")
 
     while True:
         home_action = input()
@@ -205,5 +225,7 @@ def home_page(current_user: CurrentUser):
             create_order(current_user)
         elif home_action.upper() == "P":
             get_past_orders(current_user)
+        elif home_action.upper() == "Q":
+            quit()
         else:
-            print("Please enter a b to browse products, c to create an order, or p to view your past orders")
+            print("Please enter a b to browse products, c to create an order, p to view your past orders, or q to quit")

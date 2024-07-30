@@ -26,7 +26,7 @@ def admin_home_page(admin_user: CurrentUser):
                 print("TOPS")
 
                 for tops in top_details:
-                    print([tops["top_id"]],tops["top_desc"], tops["top_size"], "${}".format(tops["top_price"], tops["top_qt"]))
+                    print([tops["top_id"]],tops["top_desc"], tops["top_size"], "${}".format(tops["top_price"]), ", Current inventory:", tops["top_qt"])
                     count_top = tops["top_id"]
 
                 while True:
@@ -36,7 +36,7 @@ def admin_home_page(admin_user: CurrentUser):
                         new_quantity = int(input(f"Current quantity of {selected_top['top_desc']}, {selected_top['top_size']} is {selected_top['top_qt']}. Enter new quantity: ").strip())
                         selected_top['top_qt'] = new_quantity
                         logging.info(f'{admin_user.get_current_user()} has edited the quantity')
-                        
+
                         with open(PATH / "athletic_tops.json", "w") as tops_file:
                             json.dump(top_details, tops_file, indent=4)
 
@@ -62,7 +62,7 @@ def admin_home_page(admin_user: CurrentUser):
                     print("BOTTOMS")
 
                     for bottoms in bottom_details:
-                        print([bottoms["bottom_id"]],bottoms["bottom_desc"], bottoms["bottom_size"], "${}".format(bottoms["bottom_price"], bottoms["bottom_qt"]))
+                        print([bottoms["bottom_id"]],bottoms["bottom_desc"], bottoms["bottom_size"], "${}".format(bottoms["bottom_price"]), ", Current inventory:", bottoms["bottom_qt"])
                         count_bottom = bottoms["bottom_id"]
                     co_input = int(input("Enter the productID to modify: ").strip())
                     selected_bottom= next((bottom for bottom in bottom_details if bottom['bottom_id'] == co_input), None)
@@ -95,7 +95,7 @@ def admin_home_page(admin_user: CurrentUser):
                     print("ACCESSORIES")
 
                     for acs in accessory_details:
-                        print([acs["acs_id"]], acs["acs_desc"], "${}".format(acs["acs_price"], acs["acs_qt"]))
+                        print([acs["acs_id"]], acs["acs_desc"], "${}".format(acs["acs_price"]),", Current inventory:", acs["acs_qt"])
                         count_acs = acs["acs_id"]
                     co_input = int(input("Enter the productID to modify: ").strip())
                     selected_acs= next((acs for acs in accessory_details if acs['acs_id'] == co_input), None)

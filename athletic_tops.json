@@ -18,7 +18,7 @@
         "top_desc": "Black Spaghetti Strap",
         "top_size": "large",
         "top_price": 15,
-        "top_qt": 99
+        "top_qt": 150
     },
     {
         "top_id": 4,
@@ -123,7 +123,7 @@
         "top_desc": "Blue Tie Dye T-Shirt",
         "top_size": "large",
         "top_price": 25,
-        "top_qt": 250
+        "top_qt": 249
     },
     {
         "top_id": 19,
@@ -158,14 +158,14 @@
         "top_desc": "White Long Sleeve",
         "top_size": "medium",
         "top_price": 35,
-        "top_qt": 250
+        "top_qt": 249
     },
     {
         "top_id": 24,
         "top_desc": "White Long Sleeve",
         "top_size": "large",
         "top_price": 35,
-        "top_qt": 189
+        "top_qt": 188
     },
     {
         "top_id": 25,
@@ -186,6 +186,6 @@
         "top_desc": "Blue Tie Dye Sleeve",
         "top_size": "large",
         "top_price": 35,
-        "top_qt": 247
+        "top_qt": 246
     }
 ]

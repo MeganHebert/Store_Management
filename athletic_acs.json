@@ -3,7 +3,7 @@
         "acs_id": 1,
         "acs_desc": "Black Cooling Towel",
         "acs_price": 15,
-        "acs_qt": 100
+        "acs_qt": 150
     },
     {
         "acs_id": 2,
@@ -15,13 +15,13 @@
         "acs_id": 3,
         "acs_desc": "Blue Tie Dye Cooling Towel",
         "acs_price": 15,
-        "acs_qt": 20
+        "acs_qt": 100
     },
     {
         "acs_id": 4,
         "acs_desc": "Black/White Tie Dye Cooling Towel",
         "acs_price": 15,
-        "acs_qt": 18
+        "acs_qt": 17
     },
     {
         "acs_id": 5,
@@ -75,7 +75,7 @@
         "acs_id": 13,
         "acs_desc": "Turquoise Mini Backpack",
         "acs_price": 50,
-        "acs_qt": 149
+        "acs_qt": 55
     },
     {
         "acs_id": 14,
