@@ -170,6 +170,8 @@ def get_past_orders(current_user: CurrentUser):
     for row in orders:
         print(row)
 
+    home_page(current_user)
+
 def home_page(current_user: CurrentUser):
     print("Please choose from the following menu options:")
     print("[B]rowse Products")
