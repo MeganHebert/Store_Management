@@ -81,7 +81,7 @@
         "top_desc": "Black T-Shirt",
         "top_size": "large",
         "top_price": 25,
-        "top_qt": 252
+        "top_qt": 250
     },
     {
         "top_id": 13,
@@ -95,7 +95,7 @@
         "top_desc": "White T-Shirt",
         "top_size": "medium",
         "top_price": 25,
-        "top_qt": 250
+        "top_qt": 252
     },
     {
         "top_id": 15,
@@ -137,7 +137,7 @@
         "top_desc": "Black Long Sleeve",
         "top_size": "medium",
         "top_price": 35,
-        "top_qt": 250
+        "top_qt": 249
     },
     {
         "top_id": 21,
@@ -165,7 +165,7 @@
         "top_desc": "White Long Sleeve",
         "top_size": "large",
         "top_price": 35,
-        "top_qt": 190
+        "top_qt": 189
     },
     {
         "top_id": 25,
@@ -179,13 +179,13 @@
         "top_desc": "Blue Tie Dye Sleeve",
         "top_size": "medium",
         "top_price": 35,
-        "top_qt": 197
+        "top_qt": 196
     },
     {
         "top_id": 27,
         "top_desc": "Blue Tie Dye Sleeve",
         "top_size": "large",
         "top_price": 35,
-        "top_qt": 250
+        "top_qt": 247
     }
 ]

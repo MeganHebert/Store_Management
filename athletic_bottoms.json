@@ -151,7 +151,7 @@
         "bottom_desc": "Blue Sweatpant",
         "bottom_size": "small",
         "bottom_price": 80.0,
-        "bottom_qt": 100
+        "bottom_qt": 99
     },
     {
         "bottom_id": 23,
@@ -186,6 +186,6 @@
         "bottom_desc": "Grey Sweatpant",
         "bottom_size": "large",
         "bottom_price": 80.0,
-        "bottom_qt": 200
+        "bottom_qt": 198
     }
 ]

@@ -21,7 +21,7 @@
         "acs_id": 4,
         "acs_desc": "Black/White Tie Dye Cooling Towel",
         "acs_price": 15,
-        "acs_qt": 100
+        "acs_qt": 18
     },
     {
         "acs_id": 5,
@@ -87,6 +87,6 @@
         "acs_id": 15,
         "acs_desc": "Metallic-White Mini Backpack",
         "acs_price": 50,
-        "acs_qt": 80
+        "acs_qt": 75
     }
 ]

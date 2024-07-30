@@ -81,12 +81,12 @@ def create_order(current_user: CurrentUser):
                 username = current_user.get_current_user()
                 index = int(co_input)
  
-                if int(co_input) in range(0,count_top):
-                    selected_top = top_details[index]
+                if int(co_input) in range(0,count_top + 1):
+                    selected_top = top_details[index-1]
                     selected_top["top_qt"] -=1
                     with open(PATH / "athletic_tops.json", "w") as tops_file:
                         json.dump(top_details, tops_file, indent=4)
-                    print(f"Order placed for {selected_top['top_desc']}!")
+                    print(f"Order placed for {selected_top['top_desc']}, {selected_top['top_size']}!")
 
                     insert_lst = [{"orderID" : orderid, "Username": username, **top_details[int(co_input)-1], "Date": time_stamp}]
                     db.orders.insert_many(insert_lst)
@@ -112,12 +112,12 @@ def create_order(current_user: CurrentUser):
                 username = current_user.get_current_user()
                 index = int(co_input)
 
-                if int(co_input) in range(0,count_bottom):
-                    selected_bottom = bottom_details[index]
+                if int(co_input) in range(0,count_bottom +1):
+                    selected_bottom = bottom_details[index -1]
                     selected_bottom["bottom_qt"] -=1
                     with open(PATH / "athletic_bottoms.json", "w") as bottoms_file:
                         json.dump(bottom_details, bottoms_file, indent=4)
-                    print(f"Order placed for {selected_bottom['bottom_desc']}!")
+                    print(f"Order placed for {selected_bottom['bottom_desc']}, {selected_bottom['bottom_size']}!")
 
                     insert_lst = [{"orderID" : orderid, "Username": username, **bottom_details[int(co_input)-1], "Date": time_stamp}]
                     db.orders.insert_many(insert_lst)
@@ -143,8 +143,8 @@ def create_order(current_user: CurrentUser):
                 username = current_user.get_current_user()
                 index = int(co_input)
 
-                if int(co_input) in range(0,count_acs):
-                    selected_acs = accessory_details[index]
+                if int(co_input) in range(0,count_acs +1):
+                    selected_acs = accessory_details[index -1]
                     selected_acs["acs_qt"] -=1
                     with open(PATH / "athletic_acs.json", "w") as acs_file:
                         json.dump(accessory_details, acs_file, indent=4)
